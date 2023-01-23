@@ -1,0 +1,17 @@
+export default {
+  LOGIN: 'Login',
+  REGISTER: 'Register',
+  FORGOT_PASSWORD: 'Forgot Password',
+  HOME: 'Home',
+  HOME_TAB: 'Home Tab',
+  SCHEDULE: 'Schedule',
+  ATTENDANCE: 'Attendance',
+  INFO: 'Info',
+  SETTINGS: 'Settings',
+  PROFILE: 'Profile',
+  SPLASH: 'Splash',
+  MAIN_APP: 'MainApp',
+  ATTENDANCE_STACK: 'MainAttendance',
+  CAMERA: 'Camera',
+  ATTENDANCE_HISTORY: 'AttendanceHistory',
+};
