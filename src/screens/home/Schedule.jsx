@@ -15,24 +15,24 @@ const dummy = {
 const selasa = {
   ...dummy,
   id: 2,
-  subjectName: 'SELASA',
+  subjectName: 'Penjaminan Mutu perangkat lunak',
 };
 const rabu = {
   ...dummy,
   id: 3,
-  subjectName: 'RABU',
+  subjectName: 'kalkulus I',
 };
 
 const kamis = {
   id: 4,
   ...dummy,
-  subjectName: 'RABU',
+  subjectName: 'Matematika diskret',
 };
 
 const jumat = {
   ...dummy,
   id: 5,
-  subjectName: 'JUMAT',
+  subjectName: 'Aljabar linier',
 };
 
 const renderLabel = ({route, focused, color}) => (

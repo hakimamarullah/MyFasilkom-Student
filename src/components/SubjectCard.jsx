@@ -1,5 +1,5 @@
 import {StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import React, {memo} from 'react';
 import {COLORS, FONTS} from '../constants';
 
 const SubjectCard = ({data}) => {
@@ -45,7 +45,7 @@ const SubjectCard = ({data}) => {
   );
 };
 
-export default SubjectCard;
+export default memo(SubjectCard);
 
 const styles = StyleSheet.create({
   container: {

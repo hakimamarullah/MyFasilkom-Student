@@ -12,6 +12,8 @@ import SubjectCard from './SubjectCard';
 import ProfileCard from './ProfileCard';
 import InfoCard from './InfoCard';
 import ModalInfo from './ModalInfo';
+import AttendanceItem from './AttendanceItem';
+import createTwoButtonAlert from './functions/createTwoButtonAlert';
 export {
   BottomNavigator,
   BottomIcon,
@@ -27,4 +29,6 @@ export {
   ProfileCard,
   InfoCard,
   ModalInfo,
+  AttendanceItem,
+  createTwoButtonAlert,
 };

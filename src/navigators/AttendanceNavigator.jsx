@@ -11,6 +11,7 @@ const Stack = createStackNavigator();
 const AttendanceNavigator = () => {
   return (
     <Stack.Navigator
+      initialRouteName={ROUTES.ATTENDANCE}
       screenOptions={{
         cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
         gestureEnabled: true,

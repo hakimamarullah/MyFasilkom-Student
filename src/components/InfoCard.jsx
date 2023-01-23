@@ -25,7 +25,7 @@ const InfoCard = ({data, onPress}) => {
   );
 };
 
-export default InfoCard;
+export default React.memo(InfoCard);
 
 const styles = StyleSheet.create({
   container: {

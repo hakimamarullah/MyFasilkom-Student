@@ -5,16 +5,42 @@ import {
   TouchableOpacity,
   Image,
   View,
+  Alert,
 } from 'react-native';
-import React from 'react';
-import {Button} from '../../components';
-import {COLORS, ROUTES} from '../../constants';
+import React, {useState} from 'react';
+import {Button, createTwoButtonAlert} from '../../components';
+import {COLORS, ROUTES, FONTS} from '../../constants';
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {ScrollView} from 'react-native-gesture-handler';
+import {SelectList} from 'react-native-dropdown-select-list';
 import {BarcodePic, NFC} from '../../assets';
 
+let courses = [
+  'Penjaminan Mutu Perangkat Lunak',
+  'Kalkulus I',
+  'Matematika Dasar I',
+  'Matematika Diskret I',
+];
+courses = courses.map((item, id) => ({key: id, value: item}));
 const Attendance = ({navigation}) => {
+  const [setSelectedCourse] = useState('');
+  const handleSelected = item => {
+    setSelectedCourse(item);
+    createTwoButtonAlert({
+      title: 'Attendance History',
+      message: `Are you sure want to see all attendance records on ${item}?`,
+      onPressOk: () => {
+        setSelectedCourse(item);
+        navigation.navigate({
+          name: ROUTES.ATTENDANCE_HISTORY,
+          params: {courseId: item},
+        });
+      },
+      onPressCancel: () => setSelectedCourse(''),
+      ok: 'Sure',
+    });
+  };
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
@@ -55,7 +81,14 @@ const Attendance = ({navigation}) => {
               </View>
             </TouchableOpacity>
           </View>
-          <View style={styles.section} />
+          <View style={styles.section}>
+            <SelectList
+              setSelected={handleSelected}
+              data={courses}
+              placeholder={'Course'}
+              fontFamily={FONTS.TitilliumWeb_REGULAR}
+            />
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
