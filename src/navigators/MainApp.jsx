@@ -17,7 +17,7 @@ const TabNavigator = () => {
   return (
     <Tab.Navigator
       tabBar={props => <BottomNavigator {...props} />}
-      initialRouteName={ROUTES.HOME}
+      initialRouteName={ROUTES.ATTENDANCE_STACK}
       backBehavior="history"
       screenOptions={({route}) => ({
         tabBarAllowFontScaling: true,

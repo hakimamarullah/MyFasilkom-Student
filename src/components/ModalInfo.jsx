@@ -53,11 +53,10 @@ const styles = StyleSheet.create({
     flex: 1,
     marginHorizontal: 17,
     marginVertical: 55,
-    backgroundColor: COLORS.white,
   },
-  safeArea: {flex: 1, zIndex: 9999, height: '100%', borderWidth: 2},
+  safeArea: {flex: 1, zIndex: 9999, height: '100%'},
   container: {
-    height: '100%',
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
