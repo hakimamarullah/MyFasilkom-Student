@@ -37,6 +37,7 @@ const Login = ({navigation, route}) => {
   return (
     <ScrollView
       style={styles.container}
+      contentContainerStyle={styles.scrollViewContainer}
       showsHorizontalScrollIndicator={false}
       showsVerticalScrollIndicator={true}>
       <StatusBar hidden={true} />
@@ -101,6 +102,9 @@ const styles = StyleSheet.create({
   },
   keyboardAvoidingViewContainer: {
     backgroundColor: COLORS.white,
+  },
+  scrollViewContainer: {
+    flexGrow: 1,
   },
   imgBg: {
     height: Dimensions.get('window').height / 2.5,

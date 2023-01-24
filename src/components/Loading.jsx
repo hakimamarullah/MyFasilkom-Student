@@ -1,6 +1,7 @@
 import React from 'react';
-import {View, ActivityIndicator, StyleSheet} from 'react-native';
+import {View, ActivityIndicator, StyleSheet, Image} from 'react-native';
 import {COLORS} from '../constants';
+
 const Loading = ({isLoading}) => {
   if (!isLoading) {
     return;
@@ -15,9 +16,6 @@ const Loading = ({isLoading}) => {
 export default Loading;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   loading: {
     position: 'absolute',
     left: 0,
@@ -25,7 +23,7 @@ const styles = StyleSheet.create({
     top: 0,
     bottom: 0,
     opacity: 0.8,
-    backgroundColor: COLORS.black,
+    backgroundColor: COLORS.white,
     justifyContent: 'center',
     alignItems: 'center',
   },

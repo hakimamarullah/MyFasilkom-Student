@@ -5,7 +5,7 @@ import {
   CardStyleInterpolators,
 } from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Home, Splash, Info, Attendance, Profile, Schedule} from '../screens';
+import {Home, Info, Attendance, Profile, Schedule} from '../screens';
 import {COLORS, FONTS, ROUTES} from '../constants';
 import {BottomNavigator, BottomIcon} from '../components';
 import AttendanceNavigator from './AttendanceNavigator';
@@ -17,7 +17,7 @@ const TabNavigator = () => {
   return (
     <Tab.Navigator
       tabBar={props => <BottomNavigator {...props} />}
-      initialRouteName={ROUTES.ATTENDANCE_STACK}
+      initialRouteName={ROUTES.HOME}
       backBehavior="history"
       screenOptions={({route}) => ({
         tabBarAllowFontScaling: true,
@@ -45,7 +45,7 @@ const TabNavigator = () => {
       <Tab.Screen
         name={ROUTES.ATTENDANCE_STACK}
         component={AttendanceNavigator}
-        options={{headerShown: false}}
+        options={{headerShown: false, lazy: false}}
       />
       <Tab.Screen
         name={ROUTES.INFO}
@@ -66,11 +66,6 @@ const MainApp = () => {
         gestureEnabled: true,
         gestureDirection: 'horizontal',
       }}>
-      <Stack.Screen
-        name={ROUTES.SPLASH}
-        component={Splash}
-        options={{headerShown: false}}
-      />
       <Stack.Screen
         name={ROUTES.HOME_TAB}
         component={TabNavigator}

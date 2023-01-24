@@ -5,7 +5,6 @@ export {default as Schedule} from './home/Schedule';
 export {default as ForgotPassword} from './auth/ForgotPassword';
 export {default as Login} from './auth/Login';
 export {default as Register} from './auth/Register';
-export {default as Splash} from './home/Splash';
 export {default as Attendance} from './attendance/Attendance';
 export {default as AttendanceHistory} from './attendance/AttendanceHistory';
 export {default as CameraScreen} from './attendance/CameraScreen';

@@ -15,3 +15,4 @@ export {default as LoginBg} from './img/login-bg.png';
 export {default as SplashScreenBg} from './img/SplashScreenBg.png';
 export {default as NFC} from './icons/PNG/nfc.png';
 export {default as BarcodePic} from './icons/PNG/barcode-scanner.png';
+export {default as LoaderIcon} from './img/loader.png';

@@ -16,28 +16,24 @@ import {ScrollView} from 'react-native-gesture-handler';
 import {SelectList} from 'react-native-dropdown-select-list';
 import {BarcodePic, NFC} from '../../assets';
 
-let courses = [
+let data = [
   'Penjaminan Mutu Perangkat Lunak',
   'Kalkulus I',
   'Matematika Dasar I',
   'Matematika Diskret I',
 ];
-courses = courses.map((item, id) => ({key: id, value: item}));
+let courses = data.map((item, id) => ({key: id, value: item}));
 const Attendance = ({navigation}) => {
-  const [setSelectedCourse] = useState('');
   const handleSelected = item => {
-    setSelectedCourse(item);
     createTwoButtonAlert({
       title: 'Attendance History',
-      message: `Are you sure want to see all attendance records on ${item}?`,
+      message: `Are you sure want to see all attendance records on ${data[item]}?`,
       onPressOk: () => {
-        setSelectedCourse(item);
         navigation.navigate({
           name: ROUTES.ATTENDANCE_HISTORY,
           params: {courseId: item},
         });
       },
-      onPressCancel: () => setSelectedCourse(''),
       ok: 'Sure',
     });
   };

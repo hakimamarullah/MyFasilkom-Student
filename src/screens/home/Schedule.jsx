@@ -59,12 +59,6 @@ const Schedule = ({navigation}) => {
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState(SCHEDULE.routes);
 
-  React.useEffect(() => {
-    const unsubscribe = navigation.addListener('focus', () => {
-      setIndex(0);
-    });
-    return unsubscribe;
-  }, [navigation]);
   return (
     <SafeAreaView style={styles.container}>
       <TabView

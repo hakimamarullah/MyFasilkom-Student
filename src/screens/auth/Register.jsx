@@ -15,6 +15,7 @@ import {Button, DropdownSelect, InputData, Loading} from '../../components';
 import {DangerToastConfig, SuccessToastConfig} from '../../config';
 import {COLORS, ERROR, FONTS, ROUTES} from '../../constants';
 import {FormRegisterValidator, Major, Validator} from '../../utils';
+import EncryptedStorage from 'react-native-encrypted-storage';
 import {AxiosPublic} from '../../utils/http';
 
 const Register = ({navigation}) => {
@@ -106,28 +107,50 @@ const Register = ({navigation}) => {
       role: 'STUDENT',
     };
     setIsLoading(true);
-    AxiosPublic.post('/auth/register', updatedData)
-      .then(res => {
-        if (res.status === 201) {
-          toast.show(
-            'Your account has been created',
-            SuccessToastConfig({title: 'Register Success'}),
-          );
-          navigation.navigate({
-            name: ROUTES.LOGIN,
-            params: {username: res.data.data.username},
-          });
-        }
+    EncryptedStorage.setItem(
+      'user',
+      JSON.stringify({
+        username: formState.email.split('@')[0],
+        password: formState.password,
+      }),
+    )
+      .then(() => {
+        setIsLoading(false);
+        toast.show(
+          'Your account has been created',
+          SuccessToastConfig({title: 'Register Success'}),
+        );
+        navigation.navigate({
+          name: ROUTES.LOGIN,
+          params: {username: formState.email.split('@')[0]},
+        });
       })
-      .catch(err => {
-        if (err.response) {
-          toast.show(
-            `${err.response.data.code}: ${err.response.data.message}`,
-            DangerToastConfig({title: 'Register Failed'}),
-          );
-        }
-      })
-      .finally(() => setIsLoading(false));
+      .catch(e => {
+        setIsLoading(false);
+        toast.show(e.message, DangerToastConfig({title: 'Register Failed'}));
+      });
+    // AxiosPublic.post('/auth/register', updatedData)
+    //   .then(res => {
+    //     if (res.status === 201) {
+    //       toast.show(
+    //         'Your account has been created',
+    //         SuccessToastConfig({title: 'Register Success'}),
+    //       );
+    //       navigation.navigate({
+    //         name: ROUTES.LOGIN,
+    //         params: {username: res.data.data.username},
+    //       });
+    //     }
+    //   })
+    //   .catch(err => {
+    //     if (err.response) {
+    //       toast.show(
+    //         `${err.response.data.code}: ${err.response.data.message}`,
+    //         DangerToastConfig({title: 'Register Failed'}),
+    //       );
+    //     }
+    //   })
+    //   .finally(() => setIsLoading(false));
   };
 
   const goToLogin = () => {

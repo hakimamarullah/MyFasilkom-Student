@@ -3,8 +3,8 @@ import {Alert} from 'react-native';
 type AlertAttr = {
   title?: string;
   message?: string;
-  onPressOk?: Function;
-  onPressCancel: Function;
+  onPressOk?: any;
+  onPressCancel?: any;
   ok: string;
   cancel: string;
 };
@@ -21,12 +21,12 @@ const createTwoButtonAlert = (options: AlertAttr) => {
     {
       text: cancel,
       style: 'cancel',
-      onPress: () => onPressCancel,
+      onPress: onPressCancel,
     },
     {
       text: ok,
       style: 'default',
-      onPress: () => onPressOk,
+      onPress: onPressOk,
     },
   ]);
 };

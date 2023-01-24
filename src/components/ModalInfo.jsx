@@ -48,11 +48,13 @@ const styles = StyleSheet.create({
     justifyContent: undefined,
     alignItems: undefined,
     margin: 0,
+    zIndex: 999,
   },
   scrollView: {
     flex: 1,
     marginHorizontal: 17,
     marginVertical: 55,
+    zIndex: 999,
   },
   safeArea: {flex: 1, zIndex: 9999, height: '100%'},
   container: {
